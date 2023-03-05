@@ -40,7 +40,7 @@ function getHeadlineNewsMain(url) {
       if (data.status === "ok") {
         showHeadlineNewsMain(data.articles.slice(0, 1));
       } else {
-        generalContent.innerHTML = `
+        headlineMainContent.innerHTML = `
         <div class="d-flex flex-column align-items-center justify-content-center">
           <img src="images/sad.gif" class="w-25 mb-2">
           <div class="text-center error-msg">
@@ -60,7 +60,7 @@ function getHeadlineNewsAside(url) {
       if (data.status === "ok") {
         showHeadlineNewsAside(data.articles.slice(2, 5));
       } else {
-        generalContent.innerHTML = `
+        headlineAsideContent.innerHTML = `
         <div class="d-flex flex-column align-items-center justify-content-center">
           <img src="images/sad.gif" class="w-25 mb-2">
           <div class="text-center error-msg">
@@ -80,7 +80,7 @@ function getHeadlineNewsRow(url) {
       if (data.status === "ok") {
         showHeadlineNewsRow(data.articles.slice(6, 12));
       } else {
-        generalContent.innerHTML = `
+        headlineRowContent.innerHTML = `
         <div class="d-flex flex-column align-items-center justify-content-center">
           <img src="images/sad.gif" class="w-25 mb-2">
           <div class="text-center error-msg">
@@ -283,7 +283,7 @@ function showHeadlineNewsAside(data) {
                 ? urlToImage
                 : "https://source.unsplash.com/1000x1000?" + title.split(" ")[0]
             }"
-            class="headline-img-aside"
+            class="headline-img-aside mx-auto"
             alt="${title}"
           />
         </a>
@@ -307,7 +307,7 @@ function showHeadlineNewsRow(data) {
   data.forEach((articles) => {
     const { title, url, urlToImage, publishedAt } = articles;
     const headlineElement = document.createElement("div");
-    headlineElement.classList.add("col-lg-2", "border-0");
+    headlineElement.classList.add("col-lg-2", "mb-2");
     headlineElement.innerHTML = `
     <div class="card h-100">
       <a href="${url}" target="_blank">
